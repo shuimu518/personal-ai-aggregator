@@ -51,11 +51,11 @@ renderModelOptions();
 sendBtn.addEventListener('click', async function() {
   const prompt = promptInput.value.trim();
   if (!prompt) {
-    setStatus('璇疯緭鍏ュ唴瀹?, 'error');
+    setStatus('请输入内容', 'error');
     return;
   }
   sendBtn.disabled = true;
-  setStatus('宸叉敹鍒帮紝鍚庣閮ㄧ讲鍚庡彲鐪熷疄璋冪敤妯″瀷', 'success');
-  resultArea.textContent = '浣犻€夋嫨浜嗭細' + providerSelect.value + ' / ' + modelSelect.value + '\n\n浣犵殑闂锛? + prompt + '\n\n褰撳墠涓哄墠绔紨绀烘ā寮忋€傝閮ㄧ讲鍚庣鏈嶅姟鍚庡皢 script.js 涓殑 BACKEND_ORIGIN 鏀逛负瀹為檯鍚庣鍦板潃銆?;
+  setStatus('已收到，后端部署后可真实调用模型', 'success');
+  resultArea.textContent = '你选择了：' + providerSelect.value + ' / ' + modelSelect.value + '\n\n你的问题：' + prompt + '\n\n当前为前端演示模式。请部署后端服务后将 script.js 中的 BACKEND_ORIGIN 改为实际后端地址。';
   sendBtn.disabled = false;
 });
