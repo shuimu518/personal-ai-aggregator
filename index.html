@@ -55,10 +55,6 @@
       font-size: 15px;
       outline: none;
       margin-bottom: 14px;
-      -webkit-appearance: auto;
-      appearance: auto;
-      position: relative;
-      z-index: 10;
     }
     textarea { min-height: 130px; resize: vertical; }
     select:focus, textarea:focus, input:focus { border-color: #58a6ff; }
@@ -73,8 +69,6 @@
       font-weight: 600;
       cursor: pointer;
       transition: opacity 0.2s;
-      position: relative;
-      z-index: 5;
     }
     button:hover { opacity: 0.88; }
     button:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -114,12 +108,12 @@
     <form id="chat-form" class="card" onsubmit="event.preventDefault()">
       <label for="provider-select">模型提供商</label>
       <select id="provider-select" name="provider">
-        <option value="" disabled selected>加载中...</option>
+        <option value="" disabled selected>选择模型提供商</option>
       </select>
 
       <label for="model-select">模型</label>
       <select id="model-select" name="model">
-        <option value="" disabled selected>请先选择提供商</option>
+        <option value="" disabled selected>请先选择模型提供商</option>
       </select>
 
       <label for="base-url">Base URL</label>
@@ -129,12 +123,12 @@
       <textarea id="prompt-input" placeholder="输入你的问题..."></textarea>
 
       <button id="send-btn" type="submit">发送</button>
-      <div class="meta">选择模型后发送，后端部署前当前为演示模式。</div>
+      <div id="status"></div>
+      <div class="meta">当前为前端演示模式，选完模型后点发送即可看到确认信息。</div>
     </form>
     <div class="card">
       <div id="result-area">等待你的提问...</div>
-      <div id="status"></div>
-      <div class="footer">聚合平台测试版 · 后端部署后可真实调用模型</div>
+      <div class="footer">聚合平台测试版</div>
     </div>
   </div>
   <script src="script.js"></script>
