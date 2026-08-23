@@ -20,7 +20,7 @@ const PROVIDERS = [
 const BACKEND_ORIGIN = (function() {
   const query = new URLSearchParams(location.search);
   const fromQuery = query.get('backendOrigin');
-  if (fromQuery) return fromQuery.replace(/\\/$/, '');
+  if (fromQuery) return fromQuery.replace(/\/$/, '');
   const local = 'http://127.0.0.1:18792';
   const remote = 'https://personal-ai-aggregator-backend-production.up.railway.app';
   return location.hostname === 'shuimu518.github.io' ? remote : local;
@@ -91,23 +91,23 @@ sendBtn.addEventListener('click', async () => {
     return;
   }
   sendBtn.disabled = true;
-  setStatus('姝ｅ湪璇锋眰鑱氬悎鍚庣: ' + BACKEND_ORIGIN, 'loading');
+  setStatus('姝ｅ湪璇锋眰鏈湴鍚庣...', 'loading');
   resultArea.textContent = '';
   let result = null;
   let lastError = null;
   try {
     result = await callBackend(prompt);
-    const label = result && result.provider && result.model ? result.provider + ' / ' + result.model : '鍚庣';
+    const label = result && result.provider && result.model ? result.provider + ' / ' + result.model : 'local backend';
     setStatus(label + ' 杩斿洖鎴愬姛', 'success');
   } catch (error) {
     lastError = error;
     setStatus('鍚庣涓嶅彲鐢紝鍒囨崲鍒?GitHub Actions 娴嬭瘯閾?..', 'loading');
     try {
       result = await callWorkflow(prompt);
-      setStatus('宸插垏鎹㈠埌 GitHub Actions 娴嬭瘯閾?, 'success');
+      setStatus('宸插垏鎹㈠埌澶囩敤閾捐矾', 'success');
     } catch (workflowError) {
       setStatus('鎵ц澶辫触', 'error');
-      resultArea.textContent = [lastError.message, workflowError.message].filter(Boolean).join('\n');
+      resultArea.textContent = lastError.message;
       sendBtn.disabled = false;
       return;
     }
