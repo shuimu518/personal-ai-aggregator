@@ -1,0 +1,16 @@
+name: Run LLM Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: '用户输入的问题'
+        required: true
+        type: string
+jobs:
+  run-llm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show prompt
+        run: |
+          echo "Received prompt: ${{ github.event.inputs.prompt }}"
+          echo "This workflow is a test scaffold."
