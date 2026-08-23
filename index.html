@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>个人AI聚合平台</title>
+  <title>涓汉AI鑱氬悎骞冲彴</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -104,29 +104,29 @@
 </head>
 <body>
   <div class="container">
-    <h1>?? 个人AI聚合平台</h1>
+    <h1>涓汉AI鑱氬悎骞冲彴</h1>
     <form id="chat-form" class="card" onsubmit="event.preventDefault()">
-      <label for="provider-select">模型提供商</label>
+      <label for="provider-select">妯″瀷鎻愪緵鍟?/label>
       <select id="provider-select" name="provider"></select>
 
-      <label for="model-select">模型</label>
+      <label for="model-select">妯″瀷</label>
       <select id="model-select" name="model"></select>
 
       <label for="base-url">Base URL</label>
       <input id="base-url" type="text" value="https://open.bigmodel.cn/api/anthropic" />
 
-      <label for="prompt-input">输入你的问题</label>
-      <textarea id="prompt-input" placeholder="输入你的问题..."></textarea>
+      <label for="prompt-input">杈撳叆浣犵殑闂</label>
+      <textarea id="prompt-input" placeholder="杈撳叆浣犵殑闂..."></textarea>
 
-      <button id="send-btn" type="submit">发送</button>
-      <div class="meta">测试说明：前端会先尝试本地代理，再回退到远端公开测试链。</div>
-    </div>
+      <button id="send-btn" type="submit">鍙戦€?/button>
+      <div class="meta">閫夋嫨妯″瀷鍚庡彂閫侊紝鍚庣閮ㄧ讲鍓嶅綋鍓嶄负婕旂ず妯″紡銆?/div>
+    </form>
     <div class="card">
-      <div id="result-area">等待你的提问...</div>
+      <div id="result-area">绛夊緟浣犵殑鎻愰棶...</div>
       <div id="status"></div>
-      <div class="footer">聚合平台测试版 · 真实 key 建议放在后端 Secret 中</div>
+      <div class="footer">鑱氬悎骞冲彴娴嬭瘯鐗?路 鍚庣閮ㄧ讲鍚庡彲鐪熷疄璋冪敤妯″瀷</div>
     </div>
   </div>
-  <script src="script.js?v=3"></script>
+  <script src="script.js"></script>
 </body>
 </html>
