@@ -6,11 +6,30 @@ on:
         description: '用户输入的问题'
         required: true
         type: string
+      provider:
+        description: '模型提供商'
+        required: false
+        type: string
+        default: 'cherry-nvidia'
+      model:
+        description: '模型 ID'
+        required: false
+        type: string
+        default: 'google/gemma-4-26b-a4b-it:free'
+      baseUrl:
+        description: '模型 Base URL'
+        required: false
+        type: string
+        default: 'https://integrate.api.nvidia.com/v1'
 jobs:
   run-llm:
     runs-on: ubuntu-latest
     steps:
-      - name: Show prompt
+      - name: Show inputs
         run: |
-          echo "Received prompt: ${{ github.event.inputs.prompt }}"
-          echo "This workflow is a test scaffold."
+          echo "prompt: ${{ github.event.inputs.prompt }}"
+          echo "provider: ${{ github.event.inputs.provider }}"
+          echo "model: ${{ github.event.inputs.model }}"
+          echo "baseUrl: ${{ github.event.inputs.baseUrl }}"
+          echo "真实模型 key 请放到 GitHub Secrets，不要写死在仓库里。"
+          echo "后续可在此步骤里调用 provider API 并回传结果。"
