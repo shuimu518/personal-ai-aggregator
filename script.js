@@ -1,12 +1,12 @@
-const providerSelect = document.getElementById('provider-select');
-const modelSelect = document.getElementById('model-select');
-const baseUrlInput = document.getElementById('base-url');
-const promptInput = document.getElementById('prompt-input');
-const sendBtn = document.getElementById('send-btn');
-const resultArea = document.getElementById('result-area');
-const statusDiv = document.getElementById('status');
+var providerSelect = document.getElementById('provider-select');
+var modelSelect = document.getElementById('model-select');
+var baseUrlInput = document.getElementById('base-url');
+var promptInput = document.getElementById('prompt-input');
+var sendBtn = document.getElementById('send-btn');
+var resultArea = document.getElementById('result-area');
+var statusDiv = document.getElementById('status');
 
-const PROVIDERS = [
+var PROVIDERS = [
   { id: 'cherry-zhipu', name: 'Zhipu', baseUrl: 'https://open.bigmodel.cn/api/anthropic', api: 'anthropic-messages', models: ['glm-4.5-flash'] },
   { id: 'cherry-step_plan', name: 'Step Plan', baseUrl: 'https://api.stepfun.com/step_plan/v1', api: 'openai-completions', models: ['step-3.7-flash', 'step-3.5-flash'] },
   { id: 'cherry-modelscope', name: 'ModelScope', baseUrl: 'https://api-inference.modelscope.cn', api: 'anthropic-messages', models: ['Qwen/Qwen3.5-27B', 'ZhipuAI/GLM-5.2', 'deepseek-ai/DeepSeek-V4-Flash'] },
@@ -25,7 +25,7 @@ function setStatus(text, type) {
 function renderProviderOptions() {
   providerSelect.innerHTML = '';
   PROVIDERS.forEach(function(provider) {
-    const option = document.createElement('option');
+    var option = document.createElement('option');
     option.value = provider.id;
     option.textContent = provider.name;
     providerSelect.appendChild(option);
@@ -34,22 +34,27 @@ function renderProviderOptions() {
 }
 
 function renderModelOptions() {
-  const provider = PROVIDERS.find(function(item) { return item.id === providerSelect.value; }) || PROVIDERS[0];
+  var provider = PROVIDERS.find(function(item) { return item.id === providerSelect.value; }) || PROVIDERS[0];
   baseUrlInput.value = provider.baseUrl;
   modelSelect.innerHTML = '';
   provider.models.forEach(function(model) {
-    const option = document.createElement('option');
+    var option = document.createElement('option');
     option.value = model;
     option.textContent = model;
     modelSelect.appendChild(option);
   });
 }
 
-// render immediately
-renderProviderOptions();
+providerSelect.addEventListener('change', renderModelOptions);
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderProviderOptions);
+} else {
+  renderProviderOptions();
+}
 
 sendBtn.addEventListener('click', async function() {
-  const prompt = promptInput.value.trim();
+  var prompt = promptInput.value.trim();
   if (!prompt) {
     setStatus('请输入内容', 'error');
     return;
