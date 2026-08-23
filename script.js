@@ -45,8 +45,8 @@ function renderModelOptions() {
   });
 }
 
-providerSelect.addEventListener('change', renderModelOptions);
-renderModelOptions();
+// render immediately
+renderProviderOptions();
 
 sendBtn.addEventListener('click', async function() {
   const prompt = promptInput.value.trim();
