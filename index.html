@@ -105,7 +105,7 @@
 <body>
   <div class="container">
     <h1>?? 个人AI聚合平台</h1>
-    <div class="card">
+    <form id="chat-form" class="card" onsubmit="event.preventDefault()">
       <label for="provider-select">模型提供商</label>
       <select id="provider-select" name="provider"></select>
 
@@ -118,7 +118,7 @@
       <label for="prompt-input">输入你的问题</label>
       <textarea id="prompt-input" placeholder="输入你的问题..."></textarea>
 
-      <button id="send-btn">发送</button>
+      <button id="send-btn" type="submit">发送</button>
       <div class="meta">测试说明：前端会先尝试本地代理，再回退到远端公开测试链。</div>
     </div>
     <div class="card">
