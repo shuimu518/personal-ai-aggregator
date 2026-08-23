@@ -55,6 +55,10 @@
       font-size: 15px;
       outline: none;
       margin-bottom: 14px;
+      -webkit-appearance: auto;
+      appearance: auto;
+      position: relative;
+      z-index: 10;
     }
     textarea { min-height: 130px; resize: vertical; }
     select:focus, textarea:focus, input:focus { border-color: #58a6ff; }
@@ -69,6 +73,8 @@
       font-weight: 600;
       cursor: pointer;
       transition: opacity 0.2s;
+      position: relative;
+      z-index: 5;
     }
     button:hover { opacity: 0.88; }
     button:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -107,10 +113,14 @@
     <h1>个人AI聚合平台</h1>
     <form id="chat-form" class="card" onsubmit="event.preventDefault()">
       <label for="provider-select">模型提供商</label>
-      <select id="provider-select" name="provider"></select>
+      <select id="provider-select" name="provider">
+        <option value="" disabled selected>加载中...</option>
+      </select>
 
       <label for="model-select">模型</label>
-      <select id="model-select" name="model"></select>
+      <select id="model-select" name="model">
+        <option value="" disabled selected>请先选择提供商</option>
+      </select>
 
       <label for="base-url">Base URL</label>
       <input id="base-url" type="text" value="https://open.bigmodel.cn/api/anthropic" />
