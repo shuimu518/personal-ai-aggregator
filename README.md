@@ -1,21 +1,15 @@
-# 个人AI聚合平台
+# 涓汉AI鑱氬悎骞冲彴
 
-## 已实现
-- 前端：https://shuimu518.github.io/personal-ai-aggregator/
-- 后端仓库：https://github.com/shuimu518/personal-ai-aggregator-backend
-- 单入口聚合后端：自动甄选模型，失败自动切换下一个
-- API Key 只保存在后端环境变量，前端不暴露
+## 缃戝潃
+- https://shuimu518.github.io/personal-ai-aggregator/
 
-## 生产接入
-1. 打开 https://github.com/shuimu518/personal-ai-aggregator-backend
-2. 用 Railway / Render / Docker 自托管部署
-3. 设置环境变量：PROVIDER_ZHIPU_KEY / PROVIDER_OPENROUTER_KEY / PROVIDER_NVIDIA_KEY 等
-4. 拿到后端域名后，把前端 `script.js` 的 `BACKEND_ORIGIN` 改成你的域名
-5. 重新部署前端
+## 浣跨敤鏂规硶
+1. 鎵撳紑涓婇潰鐨勭綉鍧€銆?
+2. 鍦ㄩ〉闈㈠乏渚ч€夋嫨 `妯″瀷鎻愪緵鍟哷 鍜?`妯″瀷`銆?
+3. 鍦ㄨ緭鍏ユ閲岃緭鍏ヤ綘鐨勯棶棰樸€?
+4. 鐐瑰嚮 `鍙戦€乣 绛夊緟杩斿洖銆?
 
-## 本地验证
-```bash
-cd backend
-npm install
-PROVIDER_OPENROUTER_KEY=sk-or-v1-xxx npm start
-```
+## 璇存槑
+- 鍓嶇椤甸潰宸插彲鐩存帴鎵撳紑鏌ョ湅銆?
+- 鐪熷疄妯″瀷璋冪敤闇€瑕佸悗绔湇鍔★紝寤鸿閮ㄧ讲鍚庣鍚庡～鍐?API Key銆?
+- 鍚庣浠撳簱锛歨ttps://github.com/shuimu518/personal-ai-aggregator-backend
